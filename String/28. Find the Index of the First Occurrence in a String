@@ -1,0 +1,18 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        if(haystack.equals(needle)){
+            return 0;
+        }
+        for(int i=0;i<haystack.length();i++){
+            for(int j=i+1;j<=haystack.length();j++){
+                String str=haystack.substring(i,j);
+                if(str.length()==needle.length()){
+                    if(str.equals(needle)){
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}
