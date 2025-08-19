@@ -1,0 +1,25 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        int count=0;
+        if(Character.isUpperCase(word.charAt(0))){
+            int countL=0;
+            for(int i=1;i<word.length();i++){
+                if(!Character.isUpperCase(word.charAt(i))){
+                    countL++;
+                }
+
+            }
+            if(countL==word.length()-1){
+                return true;
+            }
+        }
+        for(int i=0;i<word.length();i++){
+            if(Character.isUpperCase(word.charAt(i))){
+                count++;
+
+            }
+
+        }
+        return (count==0 || count==word.length())?true:false;
+    }
+}
