@@ -1,0 +1,41 @@
+class Solution {
+
+    public boolean ifVowel(char ch){
+       // char ch=str.charAt(i);
+        if(ch=='a' || ch=='A'){
+            return true;
+        }else if(ch=='e' || ch=='E'){
+            return true;
+        }else if(ch=='i' || ch=='I'){
+            return true;
+        }else if(ch=='o' || ch=='O'){
+            return true;
+        }else if(ch=='u' ||ch=='U'){
+            return true;
+        }
+        return false;
+    }
+    public String reverseVowels(String s) {
+        StringBuilder str=new StringBuilder(s);
+        int l=0;
+        int r=s.length()-1;
+        while(l<r){
+            boolean left=ifVowel(str.charAt(l));
+            boolean right=ifVowel(str.charAt(r));
+            if(left && right){
+                char c1=str.charAt(l);
+                char c2=str.charAt(r);
+                str.setCharAt(l,c2);
+                str.setCharAt(r,c1);
+                l++;
+                r--;
+            }else if(left==true && right==false){
+                r--;
+            }else{
+                l++;
+            }
+
+        }
+        return str.toString();
+    }
+}
