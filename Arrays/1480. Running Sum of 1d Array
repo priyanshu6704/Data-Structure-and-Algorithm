@@ -1,0 +1,16 @@
+class Solution {
+    public int[] runningSum(int[] nums) {
+        int totalSum=0;
+        for(int i=0;i<nums.length;i++){
+            totalSum+=nums[i];
+        }
+        int[] arr=new int[nums.length];
+        arr[nums.length-1]=totalSum;
+        for(int i=nums.length-2;i>=0;i--){
+            totalSum-=nums[i+1];
+            arr[i]=totalSum;
+        }
+        return arr;
+        
+    }
+}
