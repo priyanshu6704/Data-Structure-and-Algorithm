@@ -1,0 +1,28 @@
+class Solution {
+    public void findPermute(int[] arr,List<List<Integer>> res, List<Integer> ds,boolean[] isValid){
+        if(ds.size()==arr.length){
+            List<Integer> list=new ArrayList<>();
+            for(int i=0;i<ds.size();i++){
+                list.add(ds.get(i));
+            }
+            res.add(list);
+            return;
+        }
+        for(int i=0;i<arr.length;i++){
+            if(isValid[i]==false){
+                isValid[i]=true;
+                ds.add(arr[i]);
+                findPermute(arr,res,ds,isValid);
+                isValid[i]=false;
+                ds.remove(ds.size()-1);
+            }
+        }
+    }
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> res=new ArrayList<>();
+        List<Integer> ds=new ArrayList<>();
+        boolean[] isValid=new boolean[nums.length];
+        findPermute(nums,res,ds,isValid);
+        return res;
+    }
+}
